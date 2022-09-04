@@ -6,8 +6,12 @@ class="form-control"
 (input)="onUpdateUserName($event)">
 <button 
 class="btn btn-primary"
+[disabled]="userName === ''"
+(click)="userName = ''">Clear UserName</button>
+<!-- <button 
+class="btn btn-primary"
 [disabled]="!allowNewUser"
-(click)="onClearUserName()">Clear UserName</button>
+(click)="onClearUserName()">Clear UserName</button> -->
 <hr>
 <label>Server Name</label>
 <!-- <input
