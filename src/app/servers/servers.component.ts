@@ -13,8 +13,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
+  allowNewUser = false;
   serverCreationStatus = 'No server has been created!';
   serverName = 'Test Server';
+  userName = '';
 
   constructor() { 
     setTimeout(() => {
@@ -26,12 +28,25 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer() {
-    this.serverCreationStatus = 'Server was created!';
+    this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
   }
 
-  onUpdateServerName(event: any) {
-    this.serverName = (<HTMLInputElement>event.target).value;
-    // console.log(event);
+  // onUpdateServerName(event: any) {
+  //   this.serverName = (<HTMLInputElement>event.target).value;
+  //   // console.log(event);
+  // }
+
+  onUpdateUserName(event: any) {
+    this.userName = (<HTMLInputElement>event.target).value;
+    if (this.userName.length == 0) {
+      this.allowNewUser = false;
+    } else {
+      this.allowNewUser = true;
+    }
+  }
+
+  onClearUserName() {
+    this.userName = '';
   }
 
 }
