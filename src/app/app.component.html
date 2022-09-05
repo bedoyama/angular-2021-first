@@ -14,4 +14,17 @@
       <app-warning-alert></app-warning-alert>
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <button 
+      class="btn btn-primary"
+      (click)="displayParagraph = !displayParagraph;logClick()">Display Details</button>
+      <p *ngIf="displayParagraph">Secret Password = tuna</p>
+      <!-- <p [ngClass]="{longList: clicksList.length >= 5}">{{ clicksList.toString() }}</p> -->
+      <div 
+      *ngFor="let logItem of clicksList; let i = index"
+      [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+      [ngClass]="{'white-text': i >= 4}">{{ logItem }}</div>
+    </div>
+  </div>
 </div>

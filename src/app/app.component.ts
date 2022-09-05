@@ -8,7 +8,19 @@ import { Component } from '@angular/core';
     h3 {
       color: dodgerblue;
     }
+    
+    .white-text {
+      color: white;
+    }
   `]
 })
 export class AppComponent {
+  displayParagraph = true;
+  clicksList = [];
+
+  logClick() {
+    var timestamp = new Date().toUTCString();
+    this.clicksList.push(timestamp);
+    // console.log(this.clicksList);
+  }
 }
